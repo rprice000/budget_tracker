@@ -12,6 +12,7 @@ This application allows users to add expenses and deposits to their budget.  Thi
 * [Installation](#installation)
 * [Technologies](#technologies)
 * [Testing](#testing)
+* [Screenshots](#screenshots)
 * [Links](#links)
 * [Version](#version)
 * [Authors](#authors)
@@ -32,6 +33,10 @@ This application allows users to add expenses and deposits to their budget.  Thi
 
 ## Testing
 There are not testing dependencies for this application
+
+## Screenshots
+- All screenshots are located in the following folders.
+/public/images/..
 
 ## Links
 GitHub Repo
