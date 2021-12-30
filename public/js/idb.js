@@ -1,12 +1,12 @@
-// NEED TO ADD LINK TO HTML FILE
+
 
 let db;
 
-const request = indexedDB.open('budget', 1);
+const request = indexedDB.open('budget_tracker', 1);
 
 request.onupgradeneeded = function(event) {
     const db = event.target.result;
-    db.createdObjectStore('new_budget', { autoIncrement: true });
+    db.createdObjectStore('new_transaction', { autoIncrement: true });
 };
 
 request.onsuccess = function(event) {
@@ -22,17 +22,17 @@ request.onerror = function(event) {
 };
 
 function saveBudget(record) {
-    const transaction = db.transaction(['new_budget'], 'readwrite');
+    const transaction = db.transaction(['new_transaction'], 'readwrite');
 
-    const budgetObjectStore = transaction.objectStore('new_budget');
+    const budgetObjectStore = transaction.objectStore('new_transaction');
 
     budgetObjectStore.add(record);
 }
 
 function uploadBudget() {
-    const transaction = db.transaction(['new_budget'], 'readwrite');
+    const transaction = db.transaction(['new_transaction'], 'readwrite');
 
-    const budgetObjectStore = transaction.objectStore('new_budget');
+    const budgetObjectStore = transaction.objectStore('new_transaction');
 
     const getAll = budgetObjectStore.getAll();
 
@@ -51,9 +51,9 @@ function uploadBudget() {
                 if(serverResponse.message) {
                     throw new Error(serverResponse);
                 }
-                const transaction = db.transaction(['new_budget'], 'readwrite');
+                const transaction = db.transaction(['new_transaction'], 'readwrite');
 
-                const budgetObjectStore = transaction.objectStore('new_budget');
+                const budgetObjectStore = transaction.objectStore('new_transaction');
 
                 budgetObjectStore.clear();
 
