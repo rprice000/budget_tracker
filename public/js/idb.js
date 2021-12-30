@@ -1,5 +1,3 @@
-
-
 let db;
 
 const request = indexedDB.open('budget_tracker', 1);
@@ -13,7 +11,7 @@ request.onsuccess = function(event) {
     db = event.target.result;
 
     if(navigator.online) {
-        uploadBudget()   // MAY NEED TO CHECK
+        uploadBudget()   
     }
 };
 
